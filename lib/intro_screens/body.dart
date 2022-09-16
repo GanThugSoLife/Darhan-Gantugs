@@ -1,104 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Stack(
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Image.asset('assets/images/Welcome_Screen.png'),
-                    Container(
-                      color: Colors.white,
-                      child: const Center(),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                  ),
-                  child: Center(
-                    child: SizedBox(
-                      height: 330,
-                      width: 345,
-                      child: Image.asset(
-                        'assets/images/loogooo.png',
-                      ),
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      top: 100,
-                      right: 120,
-                      left: 0,
-                    ),
-                    child: Text(
-                      'Иргэдийн',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Poppongs',
-                        fontStyle: FontStyle.normal,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      top: 100,
-                      right: 0,
-                      left: 190,
-                    ),
-                    child: Text(
-                      'Индэр',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Poppongs',
-                        fontStyle: FontStyle.normal,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(
-                    top: 200,
-                    right: 30,
-                    left: 30,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Тавтай морилно уу.',
+      child: Container(
+        height: size.height,
+        width: double.infinity,
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                'assets/images/Welcome_Screen.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+            ),
+            Positioned(
+              top: 100,
+              child: Image.asset(
+                'assets/images/loogooo.png',
+                fit: BoxFit.cover,
+                width: 300,
+                height: 320,
+              ),
+            ),
+            Positioned(
+              bottom: 200,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(
+                      text: 'Тавтай морилно уу.',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 240,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(
+                      text: 'Иргэдийн',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                  ),
+                  const Text(
+                    'Индэр',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

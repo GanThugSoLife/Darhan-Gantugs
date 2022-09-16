@@ -4,7 +4,6 @@ import 'package:flutter_application_1/intro_screens/body.dart';
 import 'package:flutter_application_1/intro_screens/intro_page_2.dart';
 import 'package:flutter_application_1/intro_screens/intro_page_3.dart';
 import 'package:flutter_application_1/intro_screens/intro_page_4.dart';
-import 'package:flutter_application_1/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'home_page.dart';
@@ -60,7 +59,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   child: Image.asset('assets/images/button_back.png'),
                 ),
                 //dot indicator
-                SmoothPageIndicator(controller: _controller, count: 5),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 5,
+                  effect: ScrollingDotsEffect(
+                    spacing: 16,
+                    dotColor: Colors.black,
+                    activeDotColor: Colors.teal.shade700,
+                  ),
+                ),
 
                 //next or done
                 onLastPage
